@@ -1,12 +1,11 @@
 export function render(container, { player, assignment, onRestart }) {
   container.innerHTML = `
     <div class="explosion-container">
-      <p class="explosion-title">BOEM!</p>
+      <p class="explosion-title">BIEM!</p>
       ${player
         ? `<p class="explosion-loser">${escapeHtml(player)} is de lul!</p>`
         : `<p class="explosion-loser">Je bent erbij!</p>`
       }
-      <p class="explosion-punishment">Straf: ${escapeHtml(assignment || 'Ad je drankje!')}</p>
       <button class="btn btn-primary" id="next-round-btn" style="display:none">Volgende ronde</button>
     </div>
   `;

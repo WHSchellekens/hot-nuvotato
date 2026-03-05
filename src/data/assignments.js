@@ -1,7 +1,10 @@
 const STORAGE_KEY = 'hot-nuvotato-assignments';
 
 const DEFAULT_ASSIGNMENTS = [
-  'Ad je drankje!',
+  'Neem 3 slokken!',
+  'Neem 3 slokken!',
+  'Neem 3 slokken!',
+  'Neem 3 slokken!',
   'Neem 3 slokken!',
   'Lik iemands wang!',
   'Doe 3 push-ups!',

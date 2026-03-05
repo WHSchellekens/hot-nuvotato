@@ -31,7 +31,7 @@ function loop(now) {
 
 export function start(onTick, onExplode) {
   stop();
-  duration = 15000 + Math.random() * 30000; // 15-45 seconds
+  duration = 45000 + Math.random() * 65000; // 45-110 seconds
   startTime = performance.now();
   lastFrameTime = 0;
   tickCb = onTick;
