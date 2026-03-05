@@ -37,11 +37,11 @@ const DEFAULT_ASSIGNMENTS = [
   'High five iemand van Heren 1!',
   'Sta 5 seconden stil...',
   'Doe alsof je en vulkaan bent die uitbarst!',
-  'Noem 3 dieren met precies 4 letters',
-  'Noem 3 beroepen zonder de letter "R"',
-  'Noem 3 landen in Afrika',
-  'Noem 3 automerken',
-  'Noem een dier dat begint met de laatste letter van je naam'
+  'Noem 3 dieren met precies 4 letters!',
+  'Noem 3 beroepen zonder de letter "R"!',
+  'Noem 3 landen in Afrika!',
+  'Noem 3 automerken!',
+  'Noem een dier dat begint met de laatste letter van je naam!'
 ];
 
 export function getAssignments() {
