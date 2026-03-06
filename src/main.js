@@ -50,6 +50,9 @@ function goToPlaying() {
     onExplode: (data) => {
       goToExploded(data);
     },
+    onBack: () => {
+      goToSetup();
+    },
   });
 
   // Start timer, audio, and effects

@@ -107,7 +107,7 @@ body::before {
 }
 
 h1 {
-  font-family: 'Black Ops One', 'Impact', sans-serif;
+  font-family: 'Special Elite', 'Impact', sans-serif;
   font-size: 2.8rem;
   margin-bottom: 0.3rem;
   color: var(--navy);
@@ -116,7 +116,7 @@ h1 {
 }
 
 .subtitle {
-  font-family: 'Black Ops One', 'Impact', sans-serif;
+  font-family: 'Special Elite', 'Impact', sans-serif;
   font-size: 1.15rem;
   font-weight: 400;
   color: var(--navy);
@@ -265,6 +265,21 @@ input[type="text"]::placeholder {
   display: inline-block;
 }
 
+.btn-back {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 1.4rem;
+  line-height: 1;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  z-index: 5;
+}
+
 /* Game screen */
 .game-container {
   display: flex;
@@ -287,7 +302,7 @@ input[type="text"]::placeholder {
 }
 
 .assignment-text {
-  font-family: 'Black Ops One', 'Impact', sans-serif;
+  font-family: 'Special Elite', 'Impact', sans-serif;
   font-size: 1.8rem;
   font-weight: 700;
   line-height: 1.3;

@@ -18,11 +18,12 @@ function pickAssignment(assignments) {
   return next;
 }
 
-export function render(container, { players, assignments, onExplode }) {
+export function render(container, { players, assignments, onExplode, onBack }) {
   currentAssignment = pickAssignment(assignments);
   const playerName = hasPlayers() ? getNextPlayer() : null;
 
   container.innerHTML = `
+    <button class="btn-back" id="back-btn">&times;</button>
     <div class="game-container">
       <div>
         ${playerName ? `<p class="player-label">Aan de beurt: <span class="player-name">${escapeHtml(playerName)}</span></p>` : ''}
@@ -89,6 +90,10 @@ export function render(container, { players, assignments, onExplode }) {
   btn.addEventListener('touchend', resetHold);
   btn.addEventListener('touchcancel', resetHold);
   btn.addEventListener('contextmenu', (e) => e.preventDefault());
+
+  document.getElementById('back-btn').addEventListener('click', () => {
+    if (onBack) onBack();
+  });
 
   // Store callback for explosion
   window.__hotNuvotato_onExplode = () => {
