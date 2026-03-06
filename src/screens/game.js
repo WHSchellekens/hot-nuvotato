@@ -38,7 +38,7 @@ export function render(container, { players, assignments, onExplode, onBack }) {
 
   const btn = document.getElementById('klaar-btn');
   const fill = document.getElementById('klaar-fill');
-  const HOLD_DURATION = 1000;
+  const HOLD_DURATION = 500;
   let holdStart = null;
   let holdRaf = null;
 

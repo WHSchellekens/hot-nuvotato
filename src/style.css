@@ -103,13 +103,13 @@ body::before {
   max-width: 280px;
   border-radius: 12px;
   margin-top: 2.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 h1 {
   font-family: 'Special Elite', 'Impact', sans-serif;
   font-size: 2.8rem;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.75rem;
   color: var(--navy);
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -120,7 +120,7 @@ h1 {
   font-size: 1.15rem;
   font-weight: 400;
   color: var(--navy);
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   text-align: center;
   letter-spacing: 0.5px;
 }
@@ -266,12 +266,12 @@ input[type="text"]::placeholder {
 }
 
 .btn-back {
-  position: absolute;
+  position: fixed;
   top: 0.75rem;
   left: 0.75rem;
   background: none;
   border: none;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--red);
   font-size: 1.4rem;
   line-height: 1;
   width: 32px;
@@ -307,6 +307,7 @@ input[type="text"]::placeholder {
   font-weight: 700;
   line-height: 1.3;
   padding: 0 1rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 .btn-hold {
