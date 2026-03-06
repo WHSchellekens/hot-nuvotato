@@ -277,8 +277,8 @@ input[type="text"]::placeholder {
 }
 
 .player-label {
-  font-size: 1.1rem;
-  opacity: 0.8;
+  font-size: 1.4rem;
+  opacity: 0.9;
 }
 
 .player-name {
@@ -287,10 +287,33 @@ input[type="text"]::placeholder {
 }
 
 .assignment-text {
+  font-family: 'Impact', 'Arial Black', 'Haettenschweiler', sans-serif;
   font-size: 1.8rem;
   font-weight: 700;
   line-height: 1.3;
   padding: 0 1rem;
+}
+
+.btn-hold {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-hold-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background: var(--red-light);
+  pointer-events: none;
+  transition: none;
+}
+
+.btn-hold-text {
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
 }
 
 /* Explosion screen */

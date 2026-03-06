@@ -25,14 +25,52 @@ export function render(container, { players, assignments, onExplode }) {
   container.innerHTML = `
     <div class="game-container">
       <div>
-        ${playerName ? `<p class="player-label">Geef aan: <span class="player-name">${escapeHtml(playerName)}</span></p>` : ''}
+        ${playerName ? `<p class="player-label">Aan de beurt: <span class="player-name">${escapeHtml(playerName)}</span></p>` : ''}
       </div>
       <p class="assignment-text" id="assignment-text">${escapeHtml(currentAssignment)}</p>
-      <button class="btn btn-primary" id="klaar-btn">Klaar!</button>
+      <button class="btn btn-primary btn-hold" id="klaar-btn">
+        <span class="btn-hold-fill" id="klaar-fill"></span>
+        <span class="btn-hold-text">Klaar!</span>
+      </button>
     </div>
   `;
 
-  document.getElementById('klaar-btn').addEventListener('click', () => {
+  const btn = document.getElementById('klaar-btn');
+  const fill = document.getElementById('klaar-fill');
+  const HOLD_DURATION = 1500;
+  let holdStart = null;
+  let holdRaf = null;
+
+  function updateFill() {
+    const elapsed = performance.now() - holdStart;
+    const progress = Math.min(elapsed / HOLD_DURATION, 1);
+    fill.style.width = `${progress * 100}%`;
+
+    if (progress >= 1) {
+      holdRaf = null;
+      resetHold();
+      advance();
+      return;
+    }
+    holdRaf = requestAnimationFrame(updateFill);
+  }
+
+  function startHold() {
+    holdStart = performance.now();
+    fill.style.width = '0%';
+    holdRaf = requestAnimationFrame(updateFill);
+  }
+
+  function resetHold() {
+    if (holdRaf !== null) {
+      cancelAnimationFrame(holdRaf);
+      holdRaf = null;
+    }
+    holdStart = null;
+    fill.style.width = '0%';
+  }
+
+  function advance() {
     const newAssignment = pickAssignment(assignments);
     const newPlayer = hasPlayers() ? getNextPlayer() : null;
 
@@ -40,9 +78,16 @@ export function render(container, { players, assignments, onExplode }) {
 
     const playerLabel = container.querySelector('.player-label');
     if (playerLabel && newPlayer) {
-      playerLabel.innerHTML = `Geef aan: <span class="player-name">${escapeHtml(newPlayer)}</span>`;
+      playerLabel.innerHTML = `Aan de beurt: <span class="player-name">${escapeHtml(newPlayer)}</span>`;
     }
-  });
+  }
+
+  btn.addEventListener('mousedown', startHold);
+  btn.addEventListener('touchstart', (e) => { e.preventDefault(); startHold(); });
+  btn.addEventListener('mouseup', resetHold);
+  btn.addEventListener('mouseleave', resetHold);
+  btn.addEventListener('touchend', resetHold);
+  btn.addEventListener('touchcancel', resetHold);
 
   // Store callback for explosion
   window.__hotNuvotato_onExplode = () => {
