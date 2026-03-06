@@ -37,7 +37,7 @@ export function render(container, { players, assignments, onExplode }) {
 
   const btn = document.getElementById('klaar-btn');
   const fill = document.getElementById('klaar-fill');
-  const HOLD_DURATION = 1500;
+  const HOLD_DURATION = 1000;
   let holdStart = null;
   let holdRaf = null;
 
@@ -83,11 +83,12 @@ export function render(container, { players, assignments, onExplode }) {
   }
 
   btn.addEventListener('mousedown', startHold);
-  btn.addEventListener('touchstart', (e) => { e.preventDefault(); startHold(); });
+  btn.addEventListener('touchstart', (e) => { e.preventDefault(); startHold(); }, { passive: false });
   btn.addEventListener('mouseup', resetHold);
   btn.addEventListener('mouseleave', resetHold);
   btn.addEventListener('touchend', resetHold);
   btn.addEventListener('touchcancel', resetHold);
+  btn.addEventListener('contextmenu', (e) => e.preventDefault());
 
   // Store callback for explosion
   window.__hotNuvotato_onExplode = () => {

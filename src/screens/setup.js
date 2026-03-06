@@ -7,11 +7,11 @@ export function render(container, onStart) {
   container.innerHTML = `
     <img src="/logo.jpg" alt="NuVo '68" class="logo" />
     <h1>Hot NuVotato</h1>
-    <p class="subtitle">Doe mee... als je durft!<br>Voer de opdracht uit en geef de telefoon door<br><strong>Wie ontploft trekt een bak</strong></p>
+    <p class="subtitle">Doe mee... als je durft!<br>Voer de opdracht uit en geef de telefoon door<br><br><strong>Wie ontploft trekt een bak</strong></p>
 
     <div class="section">
       <div class="section-header" data-section="players">
-        <h2>Spelers <span id="player-count"></span></h2>
+        <h2>Spelers (optioneel) <span id="player-count"></span></h2>
         <span class="section-toggle">&#9660;</span>
       </div>
       <div class="section-body" id="players-body">
