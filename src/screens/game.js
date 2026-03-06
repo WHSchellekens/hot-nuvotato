@@ -1,19 +1,16 @@
 import { hasPlayers, getNextPlayer, getCurrentPlayer } from '../engine/players.js';
 
 let currentAssignment = '';
-let previousAssignment = '';
+let remaining = [];
 
 function pickAssignment(assignments) {
-  if (assignments.length <= 1) return assignments[0] || '';
+  // Refill the pool when empty
+  if (remaining.length === 0) {
+    remaining = [...assignments];
+  }
 
-  let next;
-  let attempts = 0;
-  do {
-    next = assignments[Math.floor(Math.random() * assignments.length)];
-    attempts++;
-  } while (next === previousAssignment && attempts < 20);
-
-  previousAssignment = next;
+  const idx = Math.floor(Math.random() * remaining.length);
+  const next = remaining.splice(idx, 1)[0] || '';
   currentAssignment = next;
   return next;
 }

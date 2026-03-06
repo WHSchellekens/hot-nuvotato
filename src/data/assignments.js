@@ -14,7 +14,6 @@ const DEFAULT_ASSIGNMENTS = [
   'Geef iemand buiten de deelnemers een compliment!',
   'Doe je beste dierenimitatie!',
   'Doe alsof je een volleybal smasht en maak het geluid erbij!',
-  'Doe een reclame na voor een willekeurig product!',
   'Vertel een mop - als niemand lacht, drink!',
   'Wissel van schoenen met de persoon links van je!',
   'Doe 5 jumping jacks!',
