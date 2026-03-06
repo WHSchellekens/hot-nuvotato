@@ -24,7 +24,7 @@ function spawnSmoke() {
     const y = canvas.height + 10;
     const size = 3 + progress * 12 + Math.random() * 5;
     const vx = (Math.random() - 0.5) * 1.5;
-    const vy = -(1.5 + Math.random() * 2 + progress * 2);
+    const vy = -(0.5 + Math.random() * 1 + progress * 4);
     const life = 80 + Math.random() * 40;
     const gray = 180 + Math.floor(Math.random() * 75);
     const color = `rgba(${gray},${gray},${gray},`;

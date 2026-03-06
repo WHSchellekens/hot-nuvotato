@@ -37,7 +37,7 @@ function playTick() {
   if (!ctx || !ticking) return;
 
   const progress = getProgressFn ? getProgressFn() : 0;
-  const volume = 0.15 + 0.55 * progress;
+  const volume = 0.6 + 0.4 * progress;
 
   // Tick = higher pitch, Tock = lower pitch
   const freq = isTock ? 600 : 1000;
@@ -122,7 +122,7 @@ export function playExplosion() {
     const src = ctx.createBufferSource();
     src.buffer = explosionBuffer;
     const gain = ctx.createGain();
-    gain.gain.value = 1;
+    gain.gain.value = 1.1;
     src.connect(gain);
     gain.connect(ctx.destination);
     src.start();
@@ -133,7 +133,7 @@ export function playExplosion() {
     const src = ctx.createBufferSource();
     src.buffer = quoteBuffer;
     const gain = ctx.createGain();
-    gain.gain.value = 1;
+    gain.gain.value = 1.1;
     src.connect(gain);
     gain.connect(ctx.destination);
     src.start(ctx.currentTime + 0.9);
